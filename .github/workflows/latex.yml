@@ -7,6 +7,8 @@ on:
             - "Yu_Aaron_Resume.tex"
             - "index.html"
             - ".github/workflows/**"
+            - "resume/**"
+            - "resources/**"
     pull_request:
         branches:
             - "main"
@@ -14,6 +16,8 @@ on:
             - "Yu_Aaron_Resume.tex"
             - "index.html"
             - ".github/workflows/**"
+            - "resume/**"
+            - "resources/**"
 
 jobs:
     build_latex:
