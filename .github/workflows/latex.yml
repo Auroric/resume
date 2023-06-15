@@ -26,7 +26,7 @@ jobs:
             image: danteev/texlive:latest
         steps:
             - name: Checkout
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
               with:
                   persist-credentials: false
 
@@ -44,11 +44,13 @@ jobs:
                   cp *.pdf build/ 
                   cp index.html build/
                   
-            - name: Git add
-              run: git add Yu_Aaron_Resume.pdf
+            - name: Git Add
+              run: |
+                git config --global --add safe.directory /__w/resume/resume
+                git add Yu_Aaron_Resume.pdf
               
             - name: Deploy to GitHub Pages
-              uses: JamesIves/github-pages-deploy-action@4.1.4
+              uses: JamesIves/github-pages-deploy-action@v4.4.2
               with:
                   BRANCH: gh-pages
                   FOLDER: build
