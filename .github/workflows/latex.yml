@@ -22,19 +22,15 @@ on:
 jobs:
     build_latex:
         runs-on: ubuntu-latest
-        container:
-            image: danteev/texlive:latest
         steps:
             - name: Checkout
-              uses: actions/checkout@v3
-              with:
-                  persist-credentials: false
-
+              uses: actions/checkout@v4
             - name: Compile LaTeX document
-              uses: xu-cheng/latex-action@v2
+              uses: xu-cheng/latex-action@v3
               with:
                   root_file: Yu_Aaron_Resume.tex
                   latexmk_use_xelatex: true
+                  texlive_version: 2022
                   extra_fonts: |
                     ./fonts/*.ttf
 
